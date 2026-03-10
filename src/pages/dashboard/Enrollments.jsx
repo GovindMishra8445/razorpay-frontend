@@ -9,8 +9,11 @@ import EnrollmentCard from "../../components/Enrollments";
 const Enrollments = () => {
   const { data: enrollments, isLoading } = useQuery({
     queryKey: ["my-enrollments"],
-    queryFn: async () =>
-      (await axiosInstance.get("/payment/my-enrollments")).data.data,
+    queryFn: async () => {
+      const res = await axiosInstance.get("/payment/my-enrollments");
+      return res.data?.data || [];
+    },
+    retry: 1,
   });
 
   return (

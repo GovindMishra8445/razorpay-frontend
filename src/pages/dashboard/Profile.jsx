@@ -15,9 +15,12 @@ const Profile = () => {
   const [form, setForm] = useState({ name: user?.name || '', email: user?.email || '', password: '' });
 
   const { data: enrollments, isLoading } = useQuery({
-    queryKey: ['my-enrollments'],
-    queryFn: async () => (await axiosInstance.get('/payment/my-enrollments')).data.data,
-  });
+  queryKey: ['my-enrollments'],
+  queryFn: async () => {
+    const res = await axiosInstance.get('/payment/my-enrollments');
+    return res.data?.data || [];
+  },
+  retry: 1, 
   const enrolled  = enrollments?.length || 0;
   const completed = enrollments?.filter((e) => e.status === 'Completed').length || 0;
 
