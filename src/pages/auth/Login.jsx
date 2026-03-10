@@ -23,12 +23,13 @@ const Login = () => {
       const { data } = await axiosInstance.post("/auth/login", form);
 
       console.log("API Response:", data);
-console.log("Token:", data.token);
-      setToken(data.token);
-      setUser(data.user); 
 
-      console.log("Store token after set:", useAuthStore.getState().token);
-console.log("Store user after set:", useAuthStore.getState().user);
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
+
+      setToken(data.token);
+      setUser(data.user);
+
       toast.success(`Welcome back, ${data.user?.name?.split(" ")[0]}!`);
       navigate("/dashboard");
     } catch (err) {
