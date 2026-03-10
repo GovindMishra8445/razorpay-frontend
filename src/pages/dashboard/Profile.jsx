@@ -20,7 +20,8 @@ const Profile = () => {
     const res = await axiosInstance.get('/payment/my-enrollments');
     return res.data?.data || [];
   },
-  retry: 1, 
+  retry: 1,
+});
   const enrolled  = enrollments?.length || 0;
   const completed = enrollments?.filter((e) => e.status === 'Completed').length || 0;
 
