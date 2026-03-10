@@ -14,13 +14,18 @@ const Profile = () => {
   const [showPwd,   setShowPwd]   = useState(false);
   const [form, setForm] = useState({ name: user?.name || '', email: user?.email || '', password: '' });
 
+  // const { data: enrollments, isLoading } = useQuery({
+  //   queryKey: ['my-enrollments'],
+  //   queryFn: async () => (await axiosInstance.get('/payment/my-enrollments')).data.data,
+  // });
+
   const { data: enrollments, isLoading } = useQuery({
   queryKey: ['my-enrollments'],
   queryFn: async () => {
     const res = await axiosInstance.get('/payment/my-enrollments');
     return res.data?.data || [];
   },
-  retry: 1,
+  retry: 1, // sirf 1 retry
 });
   const enrolled  = enrollments?.length || 0;
   const completed = enrollments?.filter((e) => e.status === 'Completed').length || 0;
