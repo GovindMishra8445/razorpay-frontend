@@ -21,7 +21,6 @@ const Navbar = ({ isSidebarOpen, setSidebarOpen }) => {
 
       {/* ── Left ── */}
       <div className="flex items-center gap-3">
-        {/* Hamburger — mobile only */}
         <button
           onClick={() => setSidebarOpen(!isSidebarOpen)}
           className="lg:hidden w-9 h-9 flex items-center justify-center rounded-lg text-[var(--color-text-secondary)] hover:bg-[var(--color-elevated)] transition-colors border-none bg-transparent cursor-pointer"

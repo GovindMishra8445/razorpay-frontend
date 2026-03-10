@@ -2,16 +2,16 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { fetchAllCourses, createCourse, updateCourse, deleteCourse } from "../api/courseApi";
 import { toast } from "react-toastify";
 
-// ─── Fetch all courses ────────────────────────────────────
+// ─── Fetch all courses ─────────────
 export const useCourses = () => {
   return useQuery({
     queryKey: ["courses"],
     queryFn: fetchAllCourses,
-    staleTime: 1000 * 60 * 5, // 5 min cache
+    staleTime: 1000 * 60 * 5, 
   });
 };
 
-// ─── Create course ────────────────────────────────────────
+// ─── Create course ────────────── 
 export const useCreateCourse = (onSuccessCallback) => {
   const queryClient = useQueryClient();
 
@@ -28,7 +28,7 @@ export const useCreateCourse = (onSuccessCallback) => {
   });
 };
 
-// ─── Update course ────────────────────────────────────────
+// ─── Update course ───────────
 export const useUpdateCourse = (onSuccessCallback) => {
   const queryClient = useQueryClient();
 
@@ -45,7 +45,7 @@ export const useUpdateCourse = (onSuccessCallback) => {
   });
 };
 
-// ─── Delete course ────────────────────────────────────────
+// ─── Delete course ───────────────
 export const useDeleteCourse = () => {
   const queryClient = useQueryClient();
 

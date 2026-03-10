@@ -1,121 +1,134 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
 
-/* ─────────────────────────────────────────────
-   Tailwind v4 Custom Theme Tokens
-───────────────────────────────────────────── */
 @theme {
-  --font-sans:  'Plus Jakarta Sans', sans-serif;
-  --font-serif: 'Playfair Display', serif;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-serif: "Playfair Display", serif;
 
   /* Brand accent – Amber Toffee */
-  --color-accent:        #c47d2b;
-  --color-accent-dark:   #a3631a;
-  --color-accent-light:  #fdf3e3;
-  --color-accent-ring:   rgba(196,125,43,0.20);
+  --color-accent: #c47d2b;
+  --color-accent-dark: #a3631a;
+  --color-accent-light: #fdf3e3;
+  --color-accent-ring: rgba(196, 125, 43, 0.2);
 
   /* Light palette */
-  --color-base:      #f5f3ef;
-  --color-surface:   #ffffff;
-  --color-elevated:  #ede9e2;
-  --color-subtle:    #e8e3db;
-  --color-border:    #ddd8cf;
+  --color-base: #f5f3ef;
+  --color-surface: #ffffff;
+  --color-elevated: #ede9e2;
+  --color-subtle: #e8e3db;
+  --color-border: #ddd8cf;
   --color-border-strong: #c8c2b8;
 
   /* Text */
-  --color-text-primary:   #1c1a17;
+  --color-text-primary: #1c1a17;
   --color-text-secondary: #574f45;
-  --color-text-muted:     #998f84;
+  --color-text-muted: #998f84;
 
   /* Status */
-  --color-success:    #2d8a5e;
+  --color-success: #2d8a5e;
   --color-success-bg: #edfaf3;
-  --color-warning:    #b45309;
+  --color-warning: #b45309;
   --color-warning-bg: #fffbeb;
-  --color-error:      #c0392b;
-  --color-error-bg:   #fdf2f1;
+  --color-error: #c0392b;
+  --color-error-bg: #fdf2f1;
 
   /* Sidebar — always dark */
-  --color-sidebar:         #16130f;
+  --color-sidebar: #16130f;
   --color-sidebar-surface: #201d18;
-  --color-sidebar-hover:   rgba(255,255,255,0.05);
-  --color-sidebar-border:  rgba(255,255,255,0.06);
-  --color-sidebar-text:    #7a706a;
-  --color-sidebar-label:   #3d3830;
-  --color-sidebar-active:  #c47d2b;
-  --color-sidebar-name:    #c8c0b8;
+  --color-sidebar-hover: rgba(255, 255, 255, 0.05);
+  --color-sidebar-border: rgba(255, 255, 255, 0.06);
+  --color-sidebar-text: #7a706a;
+  --color-sidebar-label: #3d3830;
+  --color-sidebar-active: #c47d2b;
+  --color-sidebar-name: #c8c0b8;
 
   /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
-  --shadow-lg: 0 8px 24px rgba(0,0,0,0.10), 0 4px 8px rgba(0,0,0,0.04);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.04);
 }
 
-/* ─────────────────────────────────────────────
-   Dark Mode — overrides via .dark on <html>
-───────────────────────────────────────────── */
 @variant dark (&:where(.dark, .dark *));
 
 .dark {
-  --color-base:      #0f0e0c;
-  --color-surface:   #181511;
-  --color-elevated:  #201d18;
-  --color-subtle:    #272319;
-  --color-border:    #2c2820;
+  --color-base: #0f0e0c;
+  --color-surface: #181511;
+  --color-elevated: #201d18;
+  --color-subtle: #272319;
+  --color-border: #2c2820;
   --color-border-strong: #3a3428;
 
-  --color-text-primary:   #ede8e0;
+  --color-text-primary: #ede8e0;
   --color-text-secondary: #9a9088;
-  --color-text-muted:     #5c5450;
+  --color-text-muted: #5c5450;
 
-  --color-accent:        #e8952e;
-  --color-accent-dark:   #c47d2b;
-  --color-accent-light:  #241d10;
-  --color-accent-ring:   rgba(232,149,46,0.18);
+  --color-accent: #e8952e;
+  --color-accent-dark: #c47d2b;
+  --color-accent-light: #241d10;
+  --color-accent-ring: rgba(232, 149, 46, 0.18);
 
-  --color-success:    #3db87a;
+  --color-success: #3db87a;
   --color-success-bg: #071a10;
-  --color-warning:    #fbbf24;
+  --color-warning: #fbbf24;
   --color-warning-bg: #1c1506;
-  --color-error:      #e05c4b;
-  --color-error-bg:   #1a0806;
+  --color-error: #e05c4b;
+  --color-error-bg: #1a0806;
 
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.20);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.28);
-  --shadow-lg: 0 8px 24px rgba(0,0,0,0.36);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.28);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.36);
 }
 
-/* ─────────────────────────────────────────────
-   Base Reset
-───────────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-html { -webkit-font-smoothing: antialiased; scrollbar-width: none; }
-html::-webkit-scrollbar { display: none; }
+html {
+  -webkit-font-smoothing: antialiased;
+  scrollbar-width: none;
+}
+html::-webkit-scrollbar {
+  display: none;
+}
 
 body {
   font-family: var(--font-sans);
   background-color: var(--color-base);
   color: var(--color-text-primary);
-  transition: background-color 0.2s, color 0.2s;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
   scrollbar-width: none;
 }
 
 /* ─────────────────────────────────────────────
    Scrollbar hidden globally
 ───────────────────────────────────────────── */
-* { scrollbar-width: none; -ms-overflow-style: none; }
-*::-webkit-scrollbar { display: none; }
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
 
 /* ─────────────────────────────────────────────
    Shimmer keyframe
 ───────────────────────────────────────────── */
 @keyframes shimmer {
-  0%   { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 @keyframes spin-slow {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* ─────────────────────────────────────────────
@@ -131,12 +144,21 @@ body {
   font-weight: 500;
   color: var(--color-sidebar-text);
   text-decoration: none;
-  transition: background-color 0.15s, color 0.15s;
+  transition:
+    background-color 0.15s,
+    color 0.15s;
   width: 100%;
   border: none;
   background: none;
   cursor: pointer;
   text-align: left;
 }
-.nav-link:hover  { background-color: var(--color-sidebar-hover); color: #c8bfb5; }
-.nav-link.active { background-color: var(--color-sidebar-active); color: #ffffff; font-weight: 600; }
+.nav-link:hover {
+  background-color: var(--color-sidebar-hover);
+  color: #c8bfb5;
+}
+.nav-link.active {
+  background-color: var(--color-sidebar-active);
+  color: #ffffff;
+  font-weight: 600;
+}

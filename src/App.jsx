@@ -44,8 +44,6 @@ function App() {
           path="/forgot-password"
           element={!token ? <ForgetPassword /> : <Navigate to="/dashboard" replace />}
         />
-
-        {/* Protected routes — ProtectedRoute wraps DashboardLayout via Outlet */}
         <Route element={<ProtectedRoute />}>
           <Route path="/dashboard" element={<DashboardLayout />}>
             <Route index element={<Dashboard />} />
@@ -55,7 +53,6 @@ function App() {
           </Route>
         </Route>
 
-        {/* Fallback */}
         <Route
           path="/"
           element={<Navigate to={token ? "/dashboard" : "/login"} replace />}

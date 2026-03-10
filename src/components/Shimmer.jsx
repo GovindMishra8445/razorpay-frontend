@@ -1,5 +1,5 @@
 
-/* Base shimmer block */
+/* shimmer block */
 const S = ({ className = '' }) => (
   <div
     className={`rounded-lg bg-[var(--color-elevated)] ${className}`}
