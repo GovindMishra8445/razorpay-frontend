@@ -1,24 +1,22 @@
-import axios from 'axios';
+import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api',
+  baseURL: import.meta.env.VITE_API_BASE_URL,
   withCredentials: true,
-  timeout: 15000,
 });
 
 axiosInstance.interceptors.request.use(
   (config) => {
     try {
-      const storage = JSON.parse(localStorage.getItem('auth-storage'));
+      const storage = JSON.parse(localStorage.getItem("auth-storage"));
       const token = storage?.state?.token;
       if (token) {
         config.headers.Authorization = `Bearer ${token}`;
       }
-    } catch {
-    }
+    } catch {}
     return config;
   },
-  (error) => Promise.reject(error)
+  (error) => Promise.reject(error),
 );
 
 // Response Interceptor: Handle 401 globally
@@ -27,14 +25,14 @@ axiosInstance.interceptors.response.use(
   (error) => {
     if (error.response?.status === 401) {
       try {
-        localStorage.removeItem('auth-storage');
+        localStorage.removeItem("auth-storage");
       } catch {}
-      if (!window.location.pathname.includes('/login')) {
-        window.location.href = '/login';
+      if (!window.location.pathname.includes("/login")) {
+        window.location.href = "/login";
       }
     }
     return Promise.reject(error);
-  }
+  },
 );
 
 export default axiosInstance;
