@@ -30,6 +30,8 @@ function App() {
   return (
     <Router>
       <Routes>
+
+        {/* Public routes */}
         <Route
           path="/login"
           element={!token ? <Login /> : <Navigate to="/dashboard" replace />}
@@ -40,30 +42,26 @@ function App() {
         />
         <Route
           path="/forgot-password"
-          element={
-            !token ? <ForgetPassword /> : <Navigate to="/dashboard" replace />
-          }
+          element={!token ? <ForgetPassword /> : <Navigate to="/dashboard" replace />}
         />
 
-        <Route
-          path="/dashboard"
-          element={
-            <ProtectedRoute>
-              <DashboardLayout />
-            </ProtectedRoute>
-          }
-        >
-          <Route index element={<Dashboard />} />
-          <Route path="courses" element={<Courses />} />
-          <Route path="enrollments" element={<Enrollments />} />
-          <Route path="profile" element={<Profile />} />
+        {/* Protected routes — ProtectedRoute wraps DashboardLayout via Outlet */}
+        <Route element={<ProtectedRoute />}>
+          <Route path="/dashboard" element={<DashboardLayout />}>
+            <Route index element={<Dashboard />} />
+            <Route path="courses" element={<Courses />} />
+            <Route path="enrollments" element={<Enrollments />} />
+            <Route path="profile" element={<Profile />} />
+          </Route>
         </Route>
 
+        {/* Fallback */}
         <Route
           path="/"
           element={<Navigate to={token ? "/dashboard" : "/login"} replace />}
         />
         <Route path="*" element={<Navigate to="/login" replace />} />
+
       </Routes>
     </Router>
   );
